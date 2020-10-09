@@ -1,0 +1,74 @@
+<div class="container mt-4">
+  <h2>Clientes</h2>
+  <div>
+  </div>
+  <div class="form-group mt-5">
+    <label for="">Buscar cliente</label>
+    <input class="form-control w-50" type="text" id="myInput" [(ngModel)]="Bnombre"  placeholder="Nombre..." title="Type in a name">
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Dui</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cl of listaClientes | tablaFilter: Bnombre">
+        <td>{{cl.dui}}</td>
+        <td>{{cl.nombre}}</td>
+        <td>{{cl.username}}</td>
+        <td>
+          <ng-template [ngIf]="cl.username != 'admin'">
+            <button type="button" data-toggle="modal" data-target="#exampleModal" (click)="seleccionar(cl.dui)"
+            class="btn btn-warning">Editar</button>
+          </ng-template>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="clientDui">Dui:</label>
+            <input type="text" disabled [(ngModel)]="cl.dui" class="form-control" placeholder="Dui" #clientDui="ngModel"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="clientDui">Nombre completo:</label>
+            <input type="text" [(ngModel)]="cl.nombre" class="form-control" placeholder="Nombre completo"
+              #clientName="ngModel" required>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="clientDui">Nombre de usuario:</label>
+            <input type="text" class="form-control" disabled [(ngModel)]="cl.username" placeholder="Usuario"
+              #userName="ngModel" required>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" (click)="modificacion()" data-dismiss="modal" class="btn btn-primary">Guardar
+            cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

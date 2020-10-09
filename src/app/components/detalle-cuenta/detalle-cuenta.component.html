@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Detalles de la cuenta</h1>
+            <p class="lead"></p>
+            <hr class="my-4">
+
+            <div class="form-group row">
+                <label for="" class="font-weight-bold col-sm-2 col-form-label">Nombre:</label>
+                <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="mi.nombre" #myName="ngModel" readonly class="form-control-plaintext" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="font-weight-bold col-sm-2 col-form-label">Dui:</label>
+                <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="mi.dui" readonly #myDui="ngModel" class="form-control-plaintext" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="font-weight-bold col-sm-2 col-form-label">Usuario:</label>
+                <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="mi.username" readonly #myUser="ngModel" class="form-control-plaintext" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="font-weight-bold col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="Miemail" readonly #myCorreo="ngModel" class="form-control-plaintext" id="staticEmail"
+                        value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="font-weight-bold col-sm-2 col-form-label">Visitas:</label>
+                <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="mi.visitas" readonly #myVisist="ngModel" class="form-control-plaintext" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="lead">
+                <ng-template [ngIf]="userService.isLoggedIn == 'cliente'">
+                    <a class="btn btn-danger mr-4" (click)="baja()" href="" role="button">Eliminar cuenta</a>
+                </ng-template>
+                <a class="btn btn-info" href="#" role="button">Cambiar contraseña</a>
+            </p>
+        </div>
+    </div>
+</div>

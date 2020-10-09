@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center mt-5 mb-5">
+  <div class="displayTableCell">
+
+    <div class="auth-block border border-info rounded p-5">
+      <h3>Registrarse</h3>
+
+      <form #regForm="ngForm" action="">
+        <div class="form-group row mt-4">
+          <label for="">Nombre Completo:</label>
+          <input type="text" class="form-control" placeholder="Nombre completo" #clientName required>
+        </div>
+        <div class="form-group row">
+          <label for="">Dui:</label>
+          <input type="text" class="form-control" placeholder="Dui" #clientDui required>
+        </div>
+
+        <div class="form-group row">
+          <label for="">Nombre de usuario:</label>
+          <input type="text" class="form-control" placeholder="Usuario" #userName required>
+        </div>
+
+        <div class="form-group row">
+          <label for="">Correo electronico:</label>
+          <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
+        </div>
+
+        <div class="form-group row">
+          <label for="">Contraseña:</label>
+          <input type="password" class="form-control" placeholder="Password" #userPwd required>
+        </div>
+
+        <div class="form-group">
+          <button type="button"
+            (click)="userService.SignUp( clientDui.value, clientName.value, userName.value, userEmail.value, userPwd.value)"
+            class="btn btn-success btn-lg btn-block" [disabled]="!regForm.form.valid" value="">Registrarse </button>
+        </div>
+        <div class="form-group text-center">
+          <span>¿Ya tienes cuenta? incia sesion</span>
+        </div>
+
+        <div class="redirectToLogin mt-2">
+          <button type="button" routerLink="/sign-in" class="btn btn-secondary btn-lg btn-block">Iniciar sesión</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
